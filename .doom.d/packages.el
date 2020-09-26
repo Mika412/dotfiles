@@ -48,7 +48,15 @@
 ;(unpin! pinned-package another-pinned-package)
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
+;; disabled packages
+;; (disable-packages! solaire-mode
+;;                    anaconda-mode
+;;                    company-anaconda
+;;                    lsp-python-ms
+;;                    mspyls
+;;                    pyimport)
 
-;; Add packages here
-
-;;(package! name-of-plugin)
+;; programming
+(package! py-isort)
+(package! flycheck-mypy)
+(package! flycheck-google-cpplint :recipe (:host github :repo "flycheck/flycheck-google-cpplint"))

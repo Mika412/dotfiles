@@ -2,7 +2,6 @@
 
 ;; Place your private configuration here! Remember, you do not need to run 'doom
 ;; sync' after modifying this file!
-
 (load! "+prog")
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
@@ -54,12 +53,12 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-
 (setq
  doom-font (font-spec :family "Source Code Pro" :size 16)
  doom-big-font (font-spec :family "Source Code Pro" :size 20)
  doom-variable-pitch-font (font-spec :family "Source Code Pro" :size 16)
  display-line-numbers-type 'relative
- projectile-project-search-path '("~/dev/uni/")
- company-idle-delay 0.05
- company-minimum-prefix-length 3)
+ projectile-project-search-path '("~/dev/uni/"))
+
+
+(setq inhibit-compacting-font-caches t)
