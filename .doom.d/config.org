@@ -1,0 +1,43 @@
+* General Config
+** General
+#+BEGIN_SRC emacs-lisp
+(setq user-full-name "Mykhaylo Marfeychuk"
+      user-mail-address "mykhamarf17@gmail.com")
+#+END_SRC
+
+** Themes
+#+BEGIN_SRC emacs-lisp
+(setq doom-theme 'doom-palenight)
+#+END_SRC
+** Fonts
+#+BEGIN_SRC emacs-lisp
+
+(setq
+ doom-font (font-spec :family "Source Code Pro" :size 18)
+ doom-big-font (font-spec :family "Source Code Pro" :size 20)
+ doom-variable-pitch-font (font-spec :family "Source Code Pro" :size 18))
+#+END_SRC
+** Projectile
+#+BEGIN_SRC emacs-lisp
+(setq projectile-project-search-path '("~/dev/" "~/dev/uni/" "~/dev/personal/"))
+#+END_SRC
+
+** Auto-complete
+#+BEGIN_SRC emacs-lisp
+
+(after! company
+  (setq company-idle-delay 0.1
+        company-minimum-prefix-length 1))
+#+END_SRC
+** Misc
+
+#+BEGIN_SRC emacs-lisp
+(setq
+ display-line-numbers-type 'relative)
+
+(after! treemacs
+  (treemacs-follow-mode)
+  (treemacs-git-mode 'deferred)
+  (setq! treemacs-show-hidden-files nil
+         treemacs-collapse-dirs 3))
+#+END_SRC
