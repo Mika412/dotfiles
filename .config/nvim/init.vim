@@ -8,8 +8,8 @@ call plug#begin(g:plugin_path)
 
 " Theme
 " ------------------------------------------------------------------------------
-
-Plug 'arcticicestudio/nord-vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
+" Plug 'arcticicestudio/nord-vim'
 " Plug 'drewtempelmeyer/palenight.vim'
 " Plug 'rakr/vim-one'
 
@@ -52,7 +52,7 @@ Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 " Autocomplete
 " ------------------------------------------------------------------------------
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'Valloric/YouCompleteMe'
+" Plug 'Valloric/YouCompleteMe'
 
 " Editing
 " ------------------------------------------------------------------------------
@@ -124,9 +124,14 @@ endfunction
 
 "  General config
 " ------------------------------------------------------------------------------
+"make < > shifts keep selection
+vnoremap < <gv
+vnoremap > >gv
+
 
 set background=dark
-colorscheme nord
+" colorscheme nord
+colorscheme dracula
 " colorscheme palenight
 " silent! colorscheme one
 
@@ -151,7 +156,7 @@ set binary
 set termguicolors
 
 " Make it obvious where 80 characters is
-set textwidth=80
+" set textwidth=80
 
 " Use ``indent`` based folding
 set foldmethod=indent
@@ -186,9 +191,9 @@ set synmaxcol=500
 set cursorline
 
 " Indent using two spaces.
-set softtabstop=2
-set tabstop=2
-set shiftwidth=2
+set softtabstop=4
+set tabstop=4
+set shiftwidth=4
 
 " Smoother scrollin- when moving horizontally
 set sidescroll=1
@@ -394,7 +399,8 @@ endif
 " endif
 
 if s:has_plugin('vim-airline')
-  let g:airline_theme = 'nord'
+  let g:airline_theme = 'dracula'
+  " let g:airline_theme = 'nord'
   let g:airline#extensions#branch#enabled = 1
   let g:airline_powerline_fonts = 1
   let g:airline#extensions#tmuxline#enabled = 0
