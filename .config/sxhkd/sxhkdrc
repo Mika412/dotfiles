@@ -14,7 +14,7 @@ super + @space
 super + shift + Escape
 	pkill -USR1 -x sxhkd
 
-# make sxhkd reload its configuration files:
+# Lock screen
 super + Escape
 	gnome-screensaver-command --lock
 
@@ -135,3 +135,6 @@ super + shift + p
 
 super + shift + Tab
   bsp-layout cycle --layouts tall,rtall,tiled
+
+ctrl + alt + {Left, Right}
+  amixer -D pulse sset Master 5%{-,+}
