@@ -8,7 +8,7 @@ super + Return
 
 # program launcher
 super + @space
-	rofi -show drun
+	rofi -show drun -theme dmenu_custom
 
 # make sxhkd reload its configuration files:
 super + shift + Escape
@@ -125,16 +125,23 @@ super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
 
-# Custom
+# Toggle Layout
 super + shift + BackSpace
   $HOME/.config/bspwm/scripts/toggle_layout.sh
 
-
+# Power menu
 super + shift + p
   $HOME/.config/bspwm/scripts/powermenu.sh
 
+# Cycle through layouts
 super + shift + Tab
   bsp-layout cycle --layouts tall,rtall,tiled
 
+# Change volume
 ctrl + alt + {Left, Right}
   amixer -D pulse sset Master 5%{-,+}
+
+super + shift + comma
+  $HOME/.config/bspwm/scripts/sxhkd_help.sh
+
+

@@ -57,6 +57,9 @@ Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 " Editing
 " ------------------------------------------------------------------------------
 
+
+Plug 'bkad/camelcasemotion'
+
 " " Allow plugins to be repeated with dot
 " Plug 'tpope/vim-repeat'
 " " Comment out blocks of code
@@ -70,7 +73,7 @@ Plug 'tomtom/tcomment_vim'
 " " Open files from Quickfix
 " Plug 'yssl/QFEnter'
 
-
+Plug 'norcalli/nvim-colorizer.lua'
 " Text objects
 " ------------------------------------------------------------------------------
 
@@ -426,3 +429,15 @@ endif
 "
 let g:ycm_path_to_python_interpreter = '/usr/bin/python3'
 let g:conda_startup_was_prefix = 0
+
+
+" camelcasemotion
+let g:camelcasemotion_key = '<leader>'
+map <silent> w <Plug>CamelCaseMotion_w
+map <silent> b <Plug>CamelCaseMotion_b
+map <silent> e <Plug>CamelCaseMotion_e
+map <silent> ge <Plug>CamelCaseMotion_ge
+sunmap w
+sunmap b
+sunmap e
+sunmap ge
