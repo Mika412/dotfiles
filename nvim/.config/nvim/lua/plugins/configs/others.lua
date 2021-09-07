@@ -12,4 +12,4 @@ M.luasnip = function()
    }
    require("luasnip/loaders/from_vscode").load()
 end
-
+return M
