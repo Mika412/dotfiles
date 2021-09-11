@@ -119,3 +119,19 @@ alias oni2="${HOME}/Applications/Onivim2-x86_64_e6556698bede80900b87713e3b98a0f2
 export PATH="$HOME/.local/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/mmarfeychuk/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/mmarfeychuk/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/mmarfeychuk/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/mmarfeychuk/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
