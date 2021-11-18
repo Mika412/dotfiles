@@ -1,0 +1,5 @@
+# battery
+#
+# Displays battery data
+[battery]
+interval=10
