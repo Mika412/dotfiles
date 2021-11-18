@@ -10,67 +10,84 @@ return require('packer').startup(function()
     -- ------------------------------------------------------------------------------
 
     use {'dracula/vim', as = 'dracula'}
+    use {'pacokwon/onedarkhc.vim' }
     use 'arcticicestudio/nord-vim'
     use 'sainnhe/sonokai'
     use 'drewtempelmeyer/palenight.vim'
     use 'ful1e5/onedark.nvim'
 
+    use 'tjdevries/colorbuddy.nvim'
+    use 'tjdevries/gruvbuddy.nvim'
+
     -- Autocomplete
     -- ------------------------------------------------------------------------------
     -- LSP Client
     use 'neovim/nvim-lspconfig'
+
+    use 'hrsh7th/cmp-nvim-lsp'
+    use 'hrsh7th/cmp-buffer'
+    use 'hrsh7th/cmp-path'
+    use 'hrsh7th/cmp-nvim-lua'
+    use 'hrsh7th/nvim-cmp'
+
+    -- use 'saadparwaiz1/cmp_luasnip'
+    -- use 'tamago324/cmp-zsh'
+    use 'hrsh7th/cmp-vsnip'
+    use 'hrsh7th/vim-vsnip'
+
     -- Auto completion
     -- use 'nvim-lua/completion-nvim'
-    use {
-        "hrsh7th/nvim-cmp",
-        -- event = "InsertEnter",
-        requires = {
-            "hrsh7th/vim-vsnip",
-            "hrsh7th/cmp-buffer",
-        },
-        config = function()
-            require('plugins.configs.cmp')
-        end,
-    }
-    use {
-        "L3MON4D3/LuaSnip",
-        -- wants = "friendly-snippets",
-        after = "nvim-cmp",
-        config = function()
-            require("plugins.configs.others").luasnip()
-        end,
-    }
-    use {
-        "saadparwaiz1/cmp_luasnip",
-        after = "LuaSnip",
-    }
+    -- use {
+    --     "hrsh7th/nvim-cmp",
+    --     -- event = "InsertEnter",
+    --     requires = {
+    --         "hrsh7th/vim-vsnip",
+    --         "hrsh7th/cmp-buffer",
+    --     },
+    --     config = function()
+    --         require('plugins.configs.cmp')
+    --     end,
+    -- }
+    -- use {
+    --     "L3MON4D3/LuaSnip",
+    --     -- wants = "friendly-snippets",
+    --     after = "nvim-cmp",
+    --     config = function()
+    --         require("plugins.configs.others").luasnip()
+    --     end,
+    -- }
+    -- use {
+    --     "saadparwaiz1/cmp_luasnip",
+    --     after = "LuaSnip",
+    -- }
 
-    use {
-      "hrsh7th/cmp-nvim-lua",
-      after = "cmp_luasnip",
-    }
+    -- use {
+    --   "hrsh7th/cmp-nvim-lua",
+    --   after = "cmp_luasnip",
+    -- }
 
-    use {
-      "hrsh7th/cmp-nvim-lsp",
-      after = "cmp-nvim-lua",
-    }
+    -- use {
+    --   "hrsh7th/cmp-nvim-lsp",
+    --   after = "cmp-nvim-lua",
+    -- }
 
-    use {
-      "hrsh7th/cmp-buffer",
-      after = "cmp-nvim-lsp",
-    }
+    -- use {
+    --   "hrsh7th/cmp-buffer",
+    --   after = "cmp-nvim-lsp",
+    -- }
 
-    use {
-      "rafamadriz/friendly-snippets",
-      after = "cmp-buffer",
-    }
+    -- use {
+    --   "rafamadriz/friendly-snippets",
+    --   after = "cmp-buffer",
+    -- }
 
 
     -- -- Function signature
-    -- use 'ray-x/lsp_signature.nvim'
+    use 'ray-x/lsp_signature.nvim'
 
     -- -- Fancy icons
     use 'onsails/lspkind-nvim'
+
     -- Status bar
     -- ------------------------------------------------------------------------------
     -- use {'ap/vim-buftabline', as = 'buftabline'} -- show buffers in tabline
@@ -103,6 +120,7 @@ return require('packer').startup(function()
     -- Zoom in
     use "Pocco81/TrueZen.nvim"
 
+    use 'sbdchd/neoformat'
     -- Syntax Hihglighting
     -- ------------------------------------------------------------------------------
 

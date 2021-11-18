@@ -69,13 +69,6 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  LuaSnip = {
-    after = { "cmp_luasnip" },
-    load_after = {},
-    loaded = true,
-    needs_bufread = false,
-    path = "/home/mmarfeychuk/.local/share/nvim/site/pack/packer/opt/LuaSnip"
-  },
   ["TrueZen.nvim"] = {
     loaded = true,
     path = "/home/mmarfeychuk/.local/share/nvim/site/pack/packer/start/TrueZen.nvim"
@@ -85,46 +78,28 @@ _G.packer_plugins = {
     path = "/home/mmarfeychuk/.local/share/nvim/site/pack/packer/start/bufferline.nvim"
   },
   ["cmp-buffer"] = {
-    after = { "friendly-snippets" },
-    after_files = { "/home/mmarfeychuk/.local/share/nvim/site/pack/packer/opt/cmp-buffer/after/plugin/cmp_buffer.lua" },
-    load_after = {},
     loaded = true,
-    needs_bufread = false,
-    path = "/home/mmarfeychuk/.local/share/nvim/site/pack/packer/opt/cmp-buffer"
+    path = "/home/mmarfeychuk/.local/share/nvim/site/pack/packer/start/cmp-buffer"
   },
   ["cmp-nvim-lsp"] = {
-    after = { "cmp-buffer" },
-    after_files = { "/home/mmarfeychuk/.local/share/nvim/site/pack/packer/opt/cmp-nvim-lsp/after/plugin/cmp_nvim_lsp.lua" },
-    load_after = {},
     loaded = true,
-    needs_bufread = false,
-    path = "/home/mmarfeychuk/.local/share/nvim/site/pack/packer/opt/cmp-nvim-lsp"
+    path = "/home/mmarfeychuk/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp"
   },
   ["cmp-nvim-lua"] = {
-    after = { "cmp-nvim-lsp" },
-    after_files = { "/home/mmarfeychuk/.local/share/nvim/site/pack/packer/opt/cmp-nvim-lua/after/plugin/cmp_nvim_lua.lua" },
-    load_after = {},
     loaded = true,
-    needs_bufread = false,
-    path = "/home/mmarfeychuk/.local/share/nvim/site/pack/packer/opt/cmp-nvim-lua"
+    path = "/home/mmarfeychuk/.local/share/nvim/site/pack/packer/start/cmp-nvim-lua"
+  },
+  ["cmp-path"] = {
+    loaded = true,
+    path = "/home/mmarfeychuk/.local/share/nvim/site/pack/packer/start/cmp-path"
   },
   cmp_luasnip = {
-    after = { "cmp-nvim-lua" },
-    after_files = { "/home/mmarfeychuk/.local/share/nvim/site/pack/packer/opt/cmp_luasnip/after/plugin/cmp_luasnip.lua" },
-    load_after = {},
     loaded = true,
-    needs_bufread = false,
-    path = "/home/mmarfeychuk/.local/share/nvim/site/pack/packer/opt/cmp_luasnip"
+    path = "/home/mmarfeychuk/.local/share/nvim/site/pack/packer/start/cmp_luasnip"
   },
   dracula = {
     loaded = true,
     path = "/home/mmarfeychuk/.local/share/nvim/site/pack/packer/start/dracula"
-  },
-  ["friendly-snippets"] = {
-    load_after = {},
-    loaded = true,
-    needs_bufread = false,
-    path = "/home/mmarfeychuk/.local/share/nvim/site/pack/packer/opt/friendly-snippets"
   },
   ["impatient.nvim"] = {
     loaded = true,
@@ -156,9 +131,8 @@ _G.packer_plugins = {
     path = "/home/mmarfeychuk/.local/share/nvim/site/pack/packer/start/nvim-autopairs"
   },
   ["nvim-cmp"] = {
-    after = { "LuaSnip" },
     loaded = true,
-    only_config = true
+    path = "/home/mmarfeychuk/.local/share/nvim/site/pack/packer/start/nvim-cmp"
   },
   ["nvim-colorizer.lua"] = {
     loaded = true,
@@ -183,6 +157,10 @@ _G.packer_plugins = {
   ["onedark.nvim"] = {
     loaded = true,
     path = "/home/mmarfeychuk/.local/share/nvim/site/pack/packer/start/onedark.nvim"
+  },
+  ["onedarkhc.vim"] = {
+    loaded = true,
+    path = "/home/mmarfeychuk/.local/share/nvim/site/pack/packer/start/onedarkhc.vim"
   },
   ["packer.nvim"] = {
     loaded = true,
@@ -223,31 +201,14 @@ _G.packer_plugins = {
   ["vim-tmux-navigator"] = {
     loaded = true,
     path = "/home/mmarfeychuk/.local/share/nvim/site/pack/packer/start/vim-tmux-navigator"
-  },
-  ["vim-vsnip"] = {
-    loaded = true,
-    path = "/home/mmarfeychuk/.local/share/nvim/site/pack/packer/start/vim-vsnip"
   }
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: nvim-cmp
-time([[Config for nvim-cmp]], true)
-try_loadstring("\27LJ\2\0023\0\0\2\0\2\0\0046\0\0\0'\1\1\0B\0\2\1K\0\1\0\24plugins.configs.cmp\frequire\0", "config", "nvim-cmp")
-time([[Config for nvim-cmp]], false)
 -- Config for: lualine.nvim
 time([[Config for lualine.nvim]], true)
 try_loadstring("\27LJ\2\0027\0\0\2\0\2\0\0046\0\0\0'\1\1\0B\0\2\1K\0\1\0\28plugins.configs.lualine\frequire\0", "config", "lualine.nvim")
 time([[Config for lualine.nvim]], false)
--- Load plugins in order defined by `after`
-time([[Sequenced loading]], true)
-vim.cmd [[ packadd LuaSnip ]]
-vim.cmd [[ packadd cmp_luasnip ]]
-vim.cmd [[ packadd cmp-nvim-lua ]]
-vim.cmd [[ packadd cmp-nvim-lsp ]]
-vim.cmd [[ packadd cmp-buffer ]]
-vim.cmd [[ packadd friendly-snippets ]]
-time([[Sequenced loading]], false)
 if should_profile then save_profiles() end
 
 end)
