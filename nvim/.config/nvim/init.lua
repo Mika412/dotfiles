@@ -1,11 +1,11 @@
--- require('init')
 require('settings')
 require('plugins')
 require('keymappings')
 
 -- color scheme
 vim.opt.background="dark"
-vim.cmd 'colorscheme onedarkhc'
+vim.cmd 'colorscheme dracula'
+-- vim.cmd 'colorscheme onedarkhc'
 
 -- require("onedark").setup({
 --   -- msgAreaStyle = "italic",

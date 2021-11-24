@@ -123,15 +123,15 @@ vim.opt.list = true
 
 
 -- Hide the warning message on LSP server
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-    vim.lsp.diagnostic.on_publish_diagnostics, {
-        -- disable virtual text
-        virtual_text = false,
+-- vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+--     vim.lsp.diagnostic.on_publish_diagnostics, {
+--         -- disable virtual text
+--         virtual_text = false,
 
-        -- show signs
-        signs = true,
+--         -- show signs
+--         signs = true,
 
-        -- delay update diagnostics
-        update_in_insert = false,
-    }
-)
+--         -- delay update diagnostics
+--         update_in_insert = false,
+--     }
+-- )

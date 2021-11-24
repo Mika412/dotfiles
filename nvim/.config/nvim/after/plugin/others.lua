@@ -27,6 +27,7 @@ require('colorizer').setup({ "*" }, {
     -- Available modes: foreground, background
     mode = "background", -- Set the display mode.
 })
+
 vim.cmd "ColorizerAttachToBuffer"
 
 require "lsp_signature".setup({
@@ -40,6 +41,12 @@ require('kommentary.config').configure_language("default", {
 
 require('nvim-autopairs').setup({
     disable_filetype = { "TelescopePrompt", "vim" },
+})
+
+require('todo-comments').setup({
+    keywords = {
+        DONE = { icon = " ", color = "hint" }
+    }
 })
 
 require('nvim-tree').setup{

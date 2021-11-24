@@ -35,52 +35,6 @@ return require('packer').startup(function()
     use 'hrsh7th/cmp-vsnip'
     use 'hrsh7th/vim-vsnip'
 
-    -- Auto completion
-    -- use 'nvim-lua/completion-nvim'
-    -- use {
-    --     "hrsh7th/nvim-cmp",
-    --     -- event = "InsertEnter",
-    --     requires = {
-    --         "hrsh7th/vim-vsnip",
-    --         "hrsh7th/cmp-buffer",
-    --     },
-    --     config = function()
-    --         require('plugins.configs.cmp')
-    --     end,
-    -- }
-    -- use {
-    --     "L3MON4D3/LuaSnip",
-    --     -- wants = "friendly-snippets",
-    --     after = "nvim-cmp",
-    --     config = function()
-    --         require("plugins.configs.others").luasnip()
-    --     end,
-    -- }
-    -- use {
-    --     "saadparwaiz1/cmp_luasnip",
-    --     after = "LuaSnip",
-    -- }
-
-    -- use {
-    --   "hrsh7th/cmp-nvim-lua",
-    --   after = "cmp_luasnip",
-    -- }
-
-    -- use {
-    --   "hrsh7th/cmp-nvim-lsp",
-    --   after = "cmp-nvim-lua",
-    -- }
-
-    -- use {
-    --   "hrsh7th/cmp-buffer",
-    --   after = "cmp-nvim-lsp",
-    -- }
-
-    -- use {
-    --   "rafamadriz/friendly-snippets",
-    --   after = "cmp-buffer",
-    -- }
-
 
     -- -- Function signature
     use 'ray-x/lsp_signature.nvim'
@@ -95,9 +49,9 @@ return require('packer').startup(function()
     use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
     use { 
         'hoob3rt/lualine.nvim',
-        config = function()
-            require('plugins.configs.lualine')
-        end,
+        -- config = function()
+        --     require('plugins.configs.lualine')
+        -- end,
     }
     use 'kyazdani42/nvim-web-devicons'
 
@@ -128,7 +82,10 @@ return require('packer').startup(function()
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
 
     -- TODO highlighting
-    use 'folke/todo-comments.nvim'
+    use {
+      "folke/todo-comments.nvim",
+      requires = "nvim-lua/plenary.nvim",
+    }
 
     use{
         "norcalli/nvim-colorizer.lua",
