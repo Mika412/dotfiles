@@ -110,9 +110,9 @@ font:
 
 
 import:
-  # - ~/.config/alacritty/themes/dracula.yaml
+  - ~/.config/alacritty/themes/dracula.yaml
   # - ~/.config/alacritty/themes/doom_one.yml
-  - ~/.config/alacritty/themes/one_dark.mod.yaml
+  # - ~/.config/alacritty/themes/one_dark.mod.yaml
 
 
 
