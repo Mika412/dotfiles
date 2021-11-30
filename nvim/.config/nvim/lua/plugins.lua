@@ -14,11 +14,11 @@ return require('packer').startup(function()
     use 'arcticicestudio/nord-vim'
     use 'sainnhe/sonokai'
     use 'drewtempelmeyer/palenight.vim'
-    use 'ful1e5/onedark.nvim'
+    use 'joshdick/onedark.vim'
 
     use 'tjdevries/colorbuddy.nvim'
     use 'tjdevries/gruvbuddy.nvim'
-
+    
     -- Autocomplete
     -- ------------------------------------------------------------------------------
     -- LSP Client
@@ -53,7 +53,6 @@ return require('packer').startup(function()
         --     require('plugins.configs.lualine')
         -- end,
     }
-    use 'kyazdani42/nvim-web-devicons'
 
     -- Tmux
     -- ------------------------------------------------------------------------------
@@ -103,7 +102,12 @@ return require('packer').startup(function()
     -- ------------------------------------------------------------------------------
 
     -- File browser
-    use 'kyazdani42/nvim-tree.lua'
+    use {
+        'kyazdani42/nvim-tree.lua',
+        requires = {
+          'kyazdani42/nvim-web-devicons', -- optional, for file icon
+        },
+    }
 
     -- General
     -- ------------------------------------------------------------------------------
@@ -112,11 +116,11 @@ return require('packer').startup(function()
     -- Close pairs
     use 'windwp/nvim-autopairs'
     -- Blankline
-    -- use "lukas-reineke/indent-blankline.nvim"
+    use "lukas-reineke/indent-blankline.nvim"
 
 
     -- Lazy loading plugins
-    use{'lewis6991/impatient.nvim'}
+    -- use{'lewis6991/impatient.nvim'}
 
 
   -- Simple plugins can be specified as strings

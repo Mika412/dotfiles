@@ -4,7 +4,10 @@ require('keymappings')
 
 -- color scheme
 vim.opt.background="dark"
-vim.cmd 'colorscheme dracula'
+vim.g.sonokai_style = 'andromeda'
+vim.cmd 'colorscheme sonokai'
+-- vim.g.sonokai_style = 'atlantis'
+-- vim.g.tokyonight_style == "day"
 -- vim.cmd 'colorscheme onedarkhc'
 
 -- require("onedark").setup({

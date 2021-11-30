@@ -119,10 +119,10 @@ _G.packer_plugins = {
     path = "/home/mmarfeychuk/.local/share/nvim/site/pack/packer/start/gruvbuddy.nvim",
     url = "https://github.com/tjdevries/gruvbuddy.nvim"
   },
-  ["impatient.nvim"] = {
+  ["indent-blankline.nvim"] = {
     loaded = true,
-    path = "/home/mmarfeychuk/.local/share/nvim/site/pack/packer/start/impatient.nvim",
-    url = "https://github.com/lewis6991/impatient.nvim"
+    path = "/home/mmarfeychuk/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
+    url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
   kommentary = {
     loaded = true,
@@ -194,10 +194,10 @@ _G.packer_plugins = {
     path = "/home/mmarfeychuk/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
-  ["onedark.nvim"] = {
+  ["onedark.vim"] = {
     loaded = true,
-    path = "/home/mmarfeychuk/.local/share/nvim/site/pack/packer/start/onedark.nvim",
-    url = "https://github.com/ful1e5/onedark.nvim"
+    path = "/home/mmarfeychuk/.local/share/nvim/site/pack/packer/start/onedark.vim",
+    url = "https://github.com/joshdick/onedark.vim"
   },
   ["onedarkhc.vim"] = {
     loaded = true,

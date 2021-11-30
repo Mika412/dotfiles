@@ -7,9 +7,9 @@ end
 lualine.setup({
     options = {
         icons_enabled = true,
-        -- theme = 'sonokai',
-        theme = 'onedark',
-        -- theme = 'dracula',
+        theme = 'sonokai',
+        -- theme = 'onedark',
+        -- theme = 'palenight',
         -- theme = 'onedark',
         section_separators = { left = '', right = ''},
         component_separators = {left = '', right = ''},
