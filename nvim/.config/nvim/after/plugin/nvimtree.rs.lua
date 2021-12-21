@@ -81,6 +81,6 @@ nvimtree.setup {
    view = {
       allow_resize = true,
       side = "left",
-      width = 30,
+      -- width = 30,
    },
 }

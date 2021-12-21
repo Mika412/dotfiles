@@ -24,7 +24,7 @@ lualine.setup({
         lualine_c = {{"filename", file_status = true}},
         -- lualine_x = {'encoding', 'fileformat', 'filetype'},
         lualine_x = {
-            { 'diagnostics', sources = {"nvim_lsp"}, symbols = {error = ' ', warn = ' ', info = ' ', hint = ' '} },
+            { 'diagnostics', sources = {"nvim_diagnostic"}, symbols = {error = ' ', warn = ' ', info = ' ', hint = ' '} },
           'encoding',
           'filetype'
         },

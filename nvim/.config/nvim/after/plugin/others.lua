@@ -49,6 +49,9 @@ require('todo-comments').setup({
     }
 })
 
+local saga = require 'lspsaga'
+
+saga.init_lsp_saga()
 
 -- Indent blankline
 vim.opt.list = true
