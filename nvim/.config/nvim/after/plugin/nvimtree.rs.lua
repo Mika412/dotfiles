@@ -10,16 +10,9 @@ vim.o.termguicolors = true
 
 g.nvim_tree_add_trailing = 0 -- append a trailing slash to folder names
 g.nvim_tree_git_hl = 1
-g.nvim_tree_gitignore = 0
 g.nvim_tree_highlight_opened_files = 0
 g.nvim_tree_indent_markers = 1
-g.nvim_tree_ignore = { ".git", "node_modules", ".cache", "__pycache__", ".vscode" }
-g.nvim_tree_quit_on_open = 0 -- closes tree when file's opened
 g.nvim_tree_root_folder_modifier = table.concat { ":t:gs?$?/..", string.rep(" ", 1000), "?:gs?^??" }
-g.nvim_tree_window_picker_exclude = {
-   filetype = { 'notify', 'packer', 'qf' },
-   buftype = {'terminal' },
-}
 
 --
 g.nvim_tree_show_icons = {
@@ -55,7 +48,7 @@ g.nvim_tree_icons = {
 }
 
 nvimtree.setup {
-   diagnostics = {
+    diagnostics = {
       enable = true,
       icons = {
          hint = "",
@@ -63,24 +56,45 @@ nvimtree.setup {
          warning = "",
          error = "",
       },
-   },
-   filters = {
+    },
+    filters = {
       dotfiles = false,
-   },
-   disable_netrw = true,
-   hijack_netrw = true,
-   ignore_ft_on_setup = { "dashboard" },
-   auto_close = false,
-   open_on_tab = false,
-   hijack_cursor = true,
-   update_cwd = true,
-   update_focused_file = {
+    },
+    disable_netrw = true,
+    hijack_netrw = true,
+    ignore_ft_on_setup = { "dashboard" },
+    auto_close = false,
+    open_on_tab = false,
+    hijack_cursor = true,
+    update_cwd = true,
+    update_focused_file = {
       enable = true,
       update_cwd = false,
-   },
-   view = {
+    },
+    view = {
       allow_resize = true,
       side = "left",
+      -- width = 30,
+    },
+    git = {
+        enable = true,
+        ignore = true,
+    },
+    filters = {
+        custom = { ".git", "node_modules", ".cache", "__pycache__", ".vscode" }
+    },
+    actions = {
+      open_file = {
+        quit_on_open = false,
+        window_picker = {
+            enable = true,
+            chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
+            exclude = {
+              filetype = { "notify", "packer", "qf", "diff", "fugitive", "fugitiveblame", },
+              buftype  = { "nofile", "terminal", "help", },
+            }
+        }
+    },
       -- width = 30,
    },
 }
