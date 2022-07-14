@@ -4,48 +4,6 @@ if not present then
    return
 end
 
-local g = vim.g
-
-vim.o.termguicolors = true
-
-g.nvim_tree_add_trailing = 0 -- append a trailing slash to folder names
-g.nvim_tree_git_hl = 1
-g.nvim_tree_highlight_opened_files = 0
-g.nvim_tree_indent_markers = 1
-g.nvim_tree_root_folder_modifier = table.concat { ":t:gs?$?/..", string.rep(" ", 1000), "?:gs?^??" }
-
---
-g.nvim_tree_show_icons = {
-   folders = 1,
-   -- folder_arrows= 1
-   files = 1,
-   git = 1,
-}
-
-g.nvim_tree_icons = {
-   default = "",
-   symlink = "",
-   git = {
-        deleted = "",
-        ignored = "◌",
-        renamed = "➜",
-        staged = "✓",
-        unmerged = "",
-        unstaged = "✗",
-        untracked = "★",
-   },
-   folder = {
-        -- disable indent_markers option to get arrows working or if you want both arrows and indent then just add the arrow icons in front            ofthe default and opened folders below!
-        -- arrow_open = "",
-        -- arrow_closed = "",
-        default = "",
-        empty = "", -- 
-        empty_open = "",
-        open = "",
-        symlink = "",
-        symlink_open = "",
-   },
-}
 
 nvimtree.setup {
     diagnostics = {
@@ -63,7 +21,7 @@ nvimtree.setup {
     disable_netrw = true,
     hijack_netrw = true,
     ignore_ft_on_setup = { "dashboard" },
-    auto_close = false,
+    -- auto_close = false,
     open_on_tab = false,
     hijack_cursor = true,
     update_cwd = true,
@@ -71,8 +29,24 @@ nvimtree.setup {
       enable = true,
       update_cwd = false,
     },
+    renderer = {
+        highlight_opened_files = "all",
+        root_folder_modifier = table.concat { ":t:gs?$?/..", string.rep(" ", 1000), "?:gs?^??" },
+        highlight_git = true,
+        indent_markers = {
+          enable = true,
+          icons = {
+            corner = "└ ",
+            edge = "│ ",
+            none = "  ",
+          },
+        },
+        icons = {
+          webdev_colors = true,
+          git_placement = "before",
+        },
+      },
     view = {
-      allow_resize = true,
       side = "left",
       -- width = 30,
     },

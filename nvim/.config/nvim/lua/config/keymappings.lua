@@ -15,7 +15,6 @@ vim.api.nvim_set_keymap('v', '<', '<gv', {noremap = false})
 vim.api.nvim_set_keymap('v', '>', '>gv', {noremap = false}) 
 
 vim.api.nvim_set_keymap('n', '<C-N>', '<cmd> NvimTreeToggle<cr>', {noremap = true}) 
-vim.g.nvim_tree_highlight_opened_files = 1
 
 -- Move to previous/next buffer in tabs
 -- vim.api.nvim_set_keymap('n', '<A-.>' , ':BufferNext<cr>', {noremap = true, silent = true}) 
