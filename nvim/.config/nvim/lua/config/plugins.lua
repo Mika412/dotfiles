@@ -9,7 +9,7 @@ return require('packer').startup(function()
 --     -- Theme
 --     -- ------------------------------------------------------------------------------
 
-     -- use {'dracula/vim', as = 'dracula'}
+     use {'dracula/vim', as = 'dracula'}
 --     use {'pacokwon/onedarkhc.vim' }
 --     use 'arcticicestudio/nord-vim'
     use 'sainnhe/sonokai'
@@ -69,7 +69,7 @@ return require('packer').startup(function()
 --     -- ------------------------------------------------------------------------------
 
 --     -- if executable('tmux')
-		use 'christoomey/vim-tmux-navigator'
+	use 'christoomey/vim-tmux-navigator'
 --     use 'tmux-plugins/vim-tmux-focus-events'
 --     -- endif
 
@@ -132,7 +132,7 @@ return require('packer').startup(function()
      -- Greeter
 --     use 'goolord/alpha-nvim'
 --     -- Smooth scrolling
---     use 'karb94/neoscroll.nvim'
+    use 'karb94/neoscroll.nvim'
 --     -- Close pairs
      use 'windwp/nvim-autopairs'
 --     -- Blankline
