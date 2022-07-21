@@ -149,7 +149,8 @@ return require('packer').startup(function()
 --   -- Load on an autocommand event
 --   -- use {'andymass/vim-matchup', event = 'VimEnter'}
 		
-	 use 'lewis6991/gitsigns.nvim'
+    use 'lewis6991/gitsigns.nvim'
+    use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 --   -- Use dependency and run lua function after load
 --   -- use {
 -- 	 --    'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' },

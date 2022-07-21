@@ -15,8 +15,7 @@ local servers = {
   "tflint",
   "tsserver",
   "clangd",
-  "pyright",
-  "pyright",
+  "pylsp",
   "yamlls",
   "bashls",
   "clangd",
@@ -109,3 +108,6 @@ end
 
 -- TODO: add something to installer later
 -- require("lspconfig").motoko.setup {}
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.offsetEncoding = { "utf-16" }
+require("lspconfig").clangd.setup({ capabilities = capabilities })
