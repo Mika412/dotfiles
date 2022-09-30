@@ -1,168 +1,131 @@
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
-
--- Only required if you have packer configured as `opt`
-
-local fn = vim.fn
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+local ensure_packer = function()
+  local fn = vim.fn
+  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+  if fn.empty(fn.glob(install_path)) > 0 then
+    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+    vim.cmd [[packadd packer.nvim]]
+    return true
+  end
+  return false
 end
 
-return require('packer').startup(function()
-    use 'wbthomason/packer.nvim'
+local packer_bootstrap = ensure_packer()
 
---     -- Theme
---     -- ------------------------------------------------------------------------------
+return require('packer').startup(function(use)
+  use 'wbthomason/packer.nvim'
 
-     use {'dracula/vim', as = 'dracula'}
---     use {'pacokwon/onedarkhc.vim' }
---     use 'arcticicestudio/nord-vim'
-    use 'sainnhe/sonokai'
---     use 'drewtempelmeyer/palenight.vim'
---     use 'joshdick/onedark.vim'
+        ----------------------
+        -- Required plugins --
+        ----------------------
 
---     use 'tjdevries/colorbuddy.nvim'
---     use 'tjdevries/gruvbuddy.nvim'
-    
-     -- Autocomplete
-     -- ------------------------------------------------------------------------------
-     -- LSP Client
---     use 'neovim/nvim-lspconfig'
---     use 'glepnir/lspsaga.nvim'
+        use('nvim-lua/plenary.nvim')
+  
+  ----------------------------------------
+  -- Theme, Icons, Statusbar, Bufferbar --
+  ----------------------------------------
+  use ({
+	  'kyazdani42/nvim-web-devicons',
+	  config = function()
+		require('nvim-web-devicons').setup()
+	  end,
+	})
 
-     use 'hrsh7th/nvim-cmp'
-     use 'hrsh7th/cmp-buffer'
-     use 'hrsh7th/cmp-path'
-	 use 'saadparwaiz1/cmp_luasnip'
-     use 'hrsh7th/cmp-nvim-lsp'
-     use 'hrsh7th/cmp-nvim-lua'
+  use ({
+	  'Mofiqul/dracula.nvim',
+	  config = function()
+		require('config.plugins.colorscheme')
+	  end,
+	})
 
-     -- LSP Snippets
-     use 'L3MON4D3/LuaSnip'
-     use 'rafamadriz/friendly-snippets'
+        -----------------------------------
+        -- Treesitter: Better Highlights --
+        -----------------------------------
 
-     -- LSP 
-     use 'neovim/nvim-lspconfig'
-     use 'williamboman/nvim-lsp-installer'
-     use 'jose-elias-alvarez/null-ls.nvim'
-     use 'RRethy/vim-illuminate'
+        use({
+                'nvim-treesitter/nvim-treesitter',
+                event = 'CursorHold',
+                run = ':TSUpdate',
+                config = function()
+                    require('config.plugins.treesitter')
+                end,
+            -- { 'nvim-treesitter/playground', after = 'nvim-treesitter' },
+            -- { 'nvim-treesitter/nvim-treesitter-textobjects', after = 'nvim-treesitter' },
+            -- { 'nvim-treesitter/nvim-treesitter-refactor', after = 'nvim-treesitter' },
+            -- { 'windwp/nvim-ts-autotag', after = 'nvim-treesitter' },
+            -- { 'JoosepAlviste/nvim-ts-context-commentstring', after = 'nvim-treesitter' },
+        })
 
+        --------------------------
+        -- Editor UI Niceties --
+        --------------------------
 
---     -- use 'tamago324/cmp-zsh'
---     use 'hrsh7th/cmp-vsnip'
---     use 'hrsh7th/vim-vsnip'
-
-
---     -- -- Function signature
---     use 'ray-x/lsp_signature.nvim'
-
---     -- -- Fancy icons
---     use 'onsails/lspkind-nvim'
-
---     -- Status bar
---     -- ------------------------------------------------------------------------------
---     -- use {'ap/vim-buftabline', as = 'buftabline'} -- show buffers in tabline
---     -- use 'romgrk/barbar.nvim'
---     use { 
---         'hoob3rt/lualine.nvim',
---         -- config = function()
---         --     require('plugins.configs.lualine')
---         -- end,
---     }
-
---     -- Tmux
---     -- ------------------------------------------------------------------------------
-
---     -- if executable('tmux')
-	use 'christoomey/vim-tmux-navigator'
---     use 'tmux-plugins/vim-tmux-focus-events'
---     -- endif
-
-
---     -- Editing
---     -- ------------------------------------------------------------------------------
-
---     -- Comment out code
---     use 'b3nj5m1n/kommentary'
---     -- use 'terrortylor/nvim-comment'
-		use 'numToStr/Comment.nvim'
-
---     -- Zoom in
---     use "Pocco81/TrueZen.nvim"
-
---     use 'sbdchd/neoformat'
---     -- Syntax Hihglighting
---     -- ------------------------------------------------------------------------------
-
---     --Global syntax highlighting
-     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
-
---     -- TODO highlighting
---     use {
---       "folke/todo-comments.nvim",
---       requires = "nvim-lua/plenary.nvim",
---     }
-		use 'kyazdani42/nvim-web-devicons'
--- -- Lua
---     use {
---       "folke/trouble.nvim",
---       requires = "kyazdani42/nvim-web-devicons",
---       config = function()
---         require("trouble").setup {
---           -- your configuration comes here
---           -- or leave it empty to use the default settings
---           -- refer to the configuration section below
---         }
---       end
---     }
---     use{
---         "norcalli/nvim-colorizer.lua",
---         -- event = "BufRead",
---     }
-
-     -- Finding and replacing
-     -- ------------------------------------------------------------------------------
-     use 'nvim-lua/plenary.nvim'
-     use 'nvim-telescope/telescope.nvim'
---     use 'nvim-telescope/telescope-fzy-native.nvim'
-
---     -- File management
---     -- ------------------------------------------------------------------------------
-
-     -- File browser
-     use 'kyazdani42/nvim-tree.lua'
-
-     -- General
-     -- ------------------------------------------------------------------------------
-     -- Greeter
---     use 'goolord/alpha-nvim'
---     -- Smooth scrolling
-    use 'karb94/neoscroll.nvim'
---     -- Close pairs
-     use 'windwp/nvim-autopairs'
---     -- Blankline
-     use "lukas-reineke/indent-blankline.nvim"
-
-
---     -- Lazy loading plugins
-     use 'lewis6991/impatient.nvim'
-
-
---   -- Simple plugins can be specified as strings
---   -- use '9mm/vim-closer'
-
---   -- Load on an autocommand event
---   -- use {'andymass/vim-matchup', event = 'VimEnter'}
+	-- Blankline
+        use({
+            'lukas-reineke/indent-blankline.nvim',
+            event = 'BufRead',
+	after = 'nvim-treesitter',
+            config = function()
+                require('config.plugins.blankline')
+            end,
+        })        
 		
-    use 'lewis6991/gitsigns.nvim'
-    use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
---   -- Use dependency and run lua function after load
---   -- use {
--- 	 --    'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' },
---   --   config = function() require('gitsigns').setup() end
---   -- }
-	
-	if packer_bootstrap then
-		require('packer').sync()
-	end
+	-- Show colour of the hex/rgb values
+	use({
+            'norcalli/nvim-colorizer.lua',
+            event = 'CursorHold',
+            config = function()
+                require('colorizer').setup()
+            end,
+        })
+
+
+	---------------------------------
+	-- Navigation and Fuzzy Search --
+	---------------------------------
+     -- File browser
+  use ({
+	'kyazdani42/nvim-tree.lua',
+	  config = function()
+		  event = 'CursorHold',
+		require('config.plugins.nvim-tree')
+	  end,
+	})
+     -- Smooth scrolling
+	 use({
+            'karb94/neoscroll.nvim',
+            event = 'WinScrolled',
+            config = function()
+                require('neoscroll').setup({ hide_cursor = false })
+            end,
+        })
+
+        -------------------------
+        -- Editing to the MOON --
+        -------------------------
+	-- use({
+ --            'tpope/vim-surround',
+ --            event = 'BufRead',
+ --            requires = {
+ --                {
+ --                    'tpope/vim-repeat',
+ --                    event = 'BufRead',
+ --                },
+ --            },
+ --        })
+        -- use({
+        --     'AndrewRadev/splitjoin.vim',
+        --     -- NOTE: splitjoin won't work with `BufRead` event
+        --     event = 'CursorHold',
+        -- })
+	  use ({
+	  'numToStr/Comment.nvim',
+	  config = function()
+		require('config.plugins.comment')
+	  end,
+	})
+  -- Automatically set up your configuration after cloning packer.nvim
+  -- Put this at the end after all plugins
+  if packer_bootstrap then
+    require('packer').sync()
+  end
 end)
