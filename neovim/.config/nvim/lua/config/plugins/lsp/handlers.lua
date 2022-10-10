@@ -111,13 +111,13 @@ end
 M.on_attach = function(client, bufnr)
 	-- M.capabilities.textDocument.completion.completionItem.snippetSupport = false
 	-- vim.lsp.codelens.refresh()
-    -- print("HELLO")
+    print("HELLO")
 	lsp_keymaps(bufnr)
 	-- lsp_highlight_document(client)
 end
 ---Common perf related flags for all the LSP servers
 M.flags = {
-    allow_incremental_sync = true,
+    -- allow_incremental_sync = true,
     debounce_text_changes = 200,
 }
 

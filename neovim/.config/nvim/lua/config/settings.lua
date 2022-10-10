@@ -1,5 +1,5 @@
-local g = vim.g
-local o = vim.o
+-- local g = vim.g
+-- local o = vim.o
 
 
 --.timeoutlen = 500

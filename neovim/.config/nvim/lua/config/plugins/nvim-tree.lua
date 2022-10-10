@@ -3,43 +3,43 @@ require('nvim-tree').setup({
         highlight_opened_files = "all",
         highlight_git = true,
         indent_markers = {
-          enable = true,
-          icons = {
-            corner = "└ ",
-            edge = "│ ",
-            none = "  ",
-          },
+            enable = true,
+            icons = {
+                corner = "└ ",
+                edge = "│ ",
+                none = "  ",
+            },
         },
         icons = {
-          webdev_colors = true,
-          git_placement = "before",
-		show = {
-			git = true,
-			folder = true,
-			file = true,
-			folder_arrow = false,
-		    },
-		glyphs = {
-			default = '',
-			git = {
-			    unstaged = '~',
-			    staged = '+',
-			    unmerged = '!',
-			    renamed = '≈',
-			    untracked = '?',
-			    deleted = '-',
-			},
-		    },
+            webdev_colors = true,
+            git_placement = "before",
+            show = {
+                git = true,
+                folder = true,
+                file = true,
+                folder_arrow = false,
+            },
+            glyphs = {
+                default = '',
+                git = {
+                    unstaged = '~',
+                    staged = '+',
+                    unmerged = '!',
+                    renamed = '≈',
+                    untracked = '?',
+                    deleted = '-',
+                },
+            },
         },
     },
     diagnostics = {
-      enable = true,
-      icons = {
-         hint = "",
-         info = "",
-         warning = "",
-         error = "",
-      },
+        enable = true,
+        icons = {
+            hint = "",
+            info = "",
+            warning = "",
+            error = "",
+        },
     },
     update_cwd = true,
     hijack_cursor = true,
@@ -49,10 +49,10 @@ require('nvim-tree').setup({
     view = {
         width = 35,
     },
-	git = {
-		ignore = false,
-	},
-actions = {
+    git = {
+        ignore = false,
+    },
+    actions = {
         open_file = {
             window_picker = {
                 enable = false,

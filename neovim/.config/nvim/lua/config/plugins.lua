@@ -2,7 +2,7 @@ local ensure_packer = function()
     local fn = vim.fn
     local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
     if fn.empty(fn.glob(install_path)) > 0 then
-        fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+        fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
         vim.cmd [[packadd packer.nvim]]
         return true
     end
@@ -43,7 +43,7 @@ return require('packer').startup(function(use)
         end
     })
 
-    -- Status line 
+    -- Status line
     use({
         'nvim-lualine/lualine.nvim',
         -- after = 'Sakura.nvim',
@@ -123,29 +123,29 @@ return require('packer').startup(function(use)
     })
 
     use({
-            'numToStr/Navigator.nvim',
-            -- event = 'CursorHold',
-            config = function()
-                require('config.plugins.navigator')
-            end,
-        })
+        'numToStr/Navigator.nvim',
+        -- event = 'CursorHold',
+        config = function()
+            require('config.plugins.navigator')
+        end,
+    })
 
     -- Searching window
-    use({{
+    use({ {
         'nvim-telescope/telescope.nvim',
         -- event = 'CursorHold',
         config = function()
             require('config.plugins.telescope')
         end
     },
-	{
-                'nvim-telescope/telescope-fzf-native.nvim',
-                after = 'telescope.nvim',
-                run = 'make',
-                config = function()
-                    -- require('telescope').load_extension('fzf')
-                end,
-            },
+        {
+            'nvim-telescope/telescope-fzf-native.nvim',
+            after = 'telescope.nvim',
+            run = 'make',
+            config = function()
+                -- require('telescope').load_extension('fzf')
+            end,
+        },
     })
 
     -- use({{
@@ -195,30 +195,40 @@ return require('packer').startup(function(use)
     -----------------------------------
     -- LSP, Completions and Snippets --
     -----------------------------------
-		    use 'williamboman/mason.nvim'
-		    use 'williamboman/mason-lspconfig'
-use({
-            'neovim/nvim-lspconfig',
-            event = 'BufRead',
-            config = function()
-                require('config.plugins.lsp.servers')
-            end,
-            after = 'mason.nvim',
-  --           requires = {
-		--     -- {'hrsh7th/nvim-cmp'},
-		-- --     {'hrsh7th/cmp-nvim-lsp'},
-  -- --               {
-  -- -- --                   -- WARN: Unfortunately we won't be able to lazy load this
-		-- --     'williamboman/nvim-lsp-installer',
-  -- --               },
-		-- {
-		--     'williamboman/mason.nvim',
-		-- },
-		-- {
-		--     'williamboman/mason-lspconfig'
-	 --    }
-  --           },
-        })
+    -- use 'williamboman/mason.nvim'
+    -- use 'williamboman/mason-lspconfig'
+    use({
+        'neovim/nvim-lspconfig',
+        -- event = 'BufRead',
+        wants = {
+            -- "nvim-lsp-installer",
+            "mason.nvim",
+            "mason-lspconfig.nvim",
+            "mason-tool-installer.nvim",
+        },
+        config = function()
+            require('config.plugins.lsp.servers')
+        end,
+        -- after = 'mason.nvim',
+        requires = {
+            'williamboman/mason.nvim',
+            'williamboman/mason-lspconfig',
+            "WhoIsSethDaniel/mason-tool-installer.nvim",
+        }
+        --     -- {'hrsh7th/nvim-cmp'},
+        -- --     {'hrsh7th/cmp-nvim-lsp'},
+        -- --               {
+        -- -- --                   -- WARN: Unfortunately we won't be able to lazy load this
+        -- --     'williamboman/nvim-lsp-installer',
+        -- --               },
+        -- {
+        --     'williamboman/mason.nvim',
+        -- },
+        -- {
+        --     'williamboman/mason-lspconfig'
+        --    }
+        --           },
+    })
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then

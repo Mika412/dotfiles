@@ -2,8 +2,8 @@ local actions = require('telescope.actions')
 local finders = require('telescope.builtin')
 
 local status_ok, telescope = pcall(require, "telescope")
-if not telescope then
-  return
+if not status_ok then
+    return
 end
 
 telescope.setup({

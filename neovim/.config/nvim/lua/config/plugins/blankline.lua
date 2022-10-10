@@ -5,7 +5,7 @@ vim.opt.listchars:append "eol:↴"
 local present, blankline = pcall(require, "indent_blankline")
 
 if not present then
-   return
+    return
 end
 
 
