@@ -52,12 +52,13 @@ return require('packer').startup(function(use)
             require('config.plugins.lualine')
         end
     })
-    -- use({
-    -- 	'j-hui/fidget.nvim',
-    -- 	config = function()
-    -- 		require('fidget').setup{}
-    -- 	end,
-    -- })
+    use({
+        'j-hui/fidget.nvim',
+        after = 'lualine.nvim',
+        config = function()
+            require('fidget').setup {}
+        end,
+    })
     -----------------------------------
     -- Treesitter: Better Highlights --
     -----------------------------------
@@ -195,39 +196,34 @@ return require('packer').startup(function(use)
     -----------------------------------
     -- LSP, Completions and Snippets --
     -----------------------------------
-    -- use 'williamboman/mason.nvim'
-    -- use 'williamboman/mason-lspconfig'
+
     use({
         'neovim/nvim-lspconfig',
         -- event = 'BufRead',
         wants = {
-            -- "nvim-lsp-installer",
             "mason.nvim",
             "mason-lspconfig.nvim",
-            "mason-tool-installer.nvim",
         },
         config = function()
             require('config.plugins.lsp.servers')
         end,
-        -- after = 'mason.nvim',
         requires = {
             'williamboman/mason.nvim',
             'williamboman/mason-lspconfig',
-            "WhoIsSethDaniel/mason-tool-installer.nvim",
         }
-        --     -- {'hrsh7th/nvim-cmp'},
-        -- --     {'hrsh7th/cmp-nvim-lsp'},
-        -- --               {
-        -- -- --                   -- WARN: Unfortunately we won't be able to lazy load this
-        -- --     'williamboman/nvim-lsp-installer',
-        -- --               },
-        -- {
-        --     'williamboman/mason.nvim',
-        -- },
-        -- {
-        --     'williamboman/mason-lspconfig'
-        --    }
-        --           },
+    })
+
+    use({
+        {
+            'hrsh7th/nvim-cmp',
+            event = 'InsertEnter',
+            config = function()
+                require('config.plugins.lsp.nvim-cmp')
+            end,
+        },
+        { 'hrsh7th/cmp-path', after = 'nvim-cmp' },
+        { 'hrsh7th/cmp-buffer', after = 'nvim-cmp' },
+        { 'hrsh7th/cmp-nvim-lsp', after = 'nvim-cmp' },
     })
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

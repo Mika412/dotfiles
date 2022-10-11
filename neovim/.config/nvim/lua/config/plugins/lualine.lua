@@ -1,7 +1,8 @@
 -- TODO: Change this config
 require('lualine').setup({
     options = {
-        theme = 'sonokai',
+        theme = 'dracula',
+        -- theme = 'sonokai',
         -- component_separators = '',
         -- section_separators = '',
         -- icons_enabled = true,
