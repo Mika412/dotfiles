@@ -52,6 +52,7 @@ local options = {
 	expandtab = true,                        -- convert tabs to spaces
 	tabstop = 4,                             -- insert 2 spaces for a tab
 	shiftwidth = 4,                          -- the number of spaces inserted for each indentation
+    timeoutlen = 200,
 }
 
 for key, value in pairs(options) do

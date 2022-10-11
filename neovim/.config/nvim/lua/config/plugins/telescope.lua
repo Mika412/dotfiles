@@ -63,11 +63,11 @@ local Telescope = setmetatable({}, {
 -- Ctrl-p = fuzzy finder
 vim.keymap.set('n', '<C-P>', Telescope.find_files)
 
--- Get :help at the speed of light
-vim.keymap.set('n', '<space>fh', Telescope.help_tags)
-
 -- -- Fuzzy find active buffers
 vim.keymap.set('n', "<space><space>", Telescope.buffers)
+
+-- Get :help at the speed of light
+vim.keymap.set('n', '<Space>fh', Telescope.help_tags)
 
 -- Search for string
 vim.keymap.set('n', "<space>ff", Telescope.live_grep)

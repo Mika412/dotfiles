@@ -233,6 +233,13 @@ return require('packer').startup(function(use)
             require('config.plugins.trouble')
         end
     }
+
+    use {
+        "folke/which-key.nvim",
+        config = function()
+            require('config.plugins.which-key')
+        end
+    }
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then
