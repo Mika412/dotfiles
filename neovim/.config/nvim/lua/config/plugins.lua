@@ -30,14 +30,20 @@ return require('packer').startup(function(use)
         end
     })
     -- Theme
+    -- use({
+    --     'Mofiqul/dracula.nvim',
+    --     config = function()
+    --         require('config.plugins.colorscheme')
+    --     end
+    -- })
+    -- use({
+    --     'sainnhe/sonokai',
+    --     config = function()
+    --         require('config.plugins.colorscheme')
+    --     end
+    -- })
     use({
-        'Mofiqul/dracula.nvim',
-        config = function()
-            require('config.plugins.colorscheme')
-        end
-    })
-    use({
-        'sainnhe/sonokai',
+        'morhetz/gruvbox',
         config = function()
             require('config.plugins.colorscheme')
         end

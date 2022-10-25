@@ -2,7 +2,7 @@
 require('lualine').setup({
     options = {
         -- theme = 'dracula',
-        theme = 'sonokai',
+        theme = 'gruvbox',
         -- component_separators = '',
         -- section_separators = '',
         -- icons_enabled = true,

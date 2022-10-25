@@ -9,13 +9,17 @@
 
 -- vim.cmd [[colorscheme dracula]]
 
--- Sonokai Theme
-vim.g.sonokai_style = 'andromeda'
-local colorscheme = "sonokai"
+-- -- Sonokai Theme
+-- vim.g.sonokai_style = 'andromeda'
+-- local colorscheme = "sonokai"
 
-local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
+-- local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 
-if not status_ok then
-	vim.notify("colorscheme " .. colorscheme .. " not found!")
-	return
-end
+-- if not status_ok then
+-- 	vim.notify("colorscheme " .. colorscheme .. " not found!")
+-- 	return
+-- end
+
+-- Gruvbox
+vim.cmd [[colorscheme gruvbox]]
+vim.g.gruvbox_contrast_dark = "medium"
