@@ -12,6 +12,7 @@ require "config.comment" -- Checked
 require "config.nvim-tree" -- Checked
 require "config.neoscroll" -- Checked
 require "config.lualine" -- Checked
+require "config.git-conflict" -- Checked
 -- require "user.toggleterm"
 -- require "user.project"
 require "config.impatient" -- Checked

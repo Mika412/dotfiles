@@ -31,7 +31,7 @@ local options = {
   timeoutlen = 300,                        -- time to wait for a mapped sequence to complete (in milliseconds)
   signcolumn = "yes",                      -- always show the sign column, otherwise it would shift the text each time
 
-  cmdheight = 2,                           -- more space in the neovim command line for displaying messages
+  cmdheight = 1,                           -- more space in the neovim command line for displaying messages
   completeopt = { "menuone", "noselect" }, -- mostly just for cmp
   conceallevel = 0,                        -- so that `` is visible in markdown files
   fileencoding = "utf-8",                  -- the encoding written to a file
