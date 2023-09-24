@@ -1,2 +1,3 @@
-require('config.settings')
-require('config.plugins')
+require "options"
+require "keymaps"
+require "plugins"
