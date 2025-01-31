@@ -1,6 +1,6 @@
 # "cursor.style" = "Block"
-import = ["/home/mmarfeychuk/.config/alacritty/themes/themes/palenight.toml"]
-live_config_reload = true
+general.import = ["./themes/themes/catppuccin_macchiato.toml"]
+general.live_config_reload = true
 # "mouse.hide_when_typing" = false
 # "window.dynamic_title" = true
 
